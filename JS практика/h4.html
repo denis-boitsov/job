@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+	.li1, .li2, .li3{
+		display: inline-block;
+		border: 1px solid red;
+		cursor: pointer;
+		padding: 0 5px;
+	}
+	.submenu1, .submenu2, .submenu3{
+		display: none;
+		list-style: none;
+		border: 1px solid blue;
+		margin: 0 auto;
+	}
+	.submenu1>li{
+		border: 1px solid yellow;
+		display: table;
+		max-width: 0px;
+	}
+	.submenu1>li:hover{
+		background: blue;
+	}
+</style>
+<body>
+	<ul class='menu'>
+		<li class='li1'>Меню1
+			<ul class='submenu1'>
+				<li class='submenu1.1'>1.1</li>
+				<li class='submenu1.2'>1.2</li>
+			</ul>
+		</li>
+		<li class='li2'>Меню2
+			<ul class='submenu2'>
+				<li>2.1</li>
+				<li>2.2</li>
+			</ul>
+		</li>
+		<li class='li3'>Меню3
+			<ul class='submenu3'>
+				<li>3.1</li>
+				<li>3.2</li>
+			</ul>
+		</li>
+	</ul>
+<script>
+	var menu = document.querySelector('.menu');
+	var list1 = document.querySelector('.li1');
+	var sub1 = document.querySelector('.submenu1');
+	
+		menu.addEventListener('mouseover', func);
+		
+			function func(e){
+				var target = e.target;
+				if(target.className != 'li1') return func2(target);
+					sub1.style.display = 'table';
+			}
+		sub1.addEventListener('mouseover', func2);
+		
+			function func2(target){
+				if(target.className != 'submenu1.1'&&target.className != 'submenu1.2') return sub1.style.display = 'none';
+					sub1.style.display = 'table';
+			}
+</script>
+</body>
+</html>

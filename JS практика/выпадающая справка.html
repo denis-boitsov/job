@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      height: 2000px;
+      /* подсказка должна работать независимо от прокрутки */
+    }
+    div{
+      position: fixed;
+      text-align: center;
+       padding: 10px 20px;
+      background-color: white;
+      border: 1px solid grey;
+      border-radius: 3px;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+  <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+  <button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+  <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+  <p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+
+  <script>
+  var Hint;
+  
+  
+    document.onmouseover = function(e){
+      var target = e.target;
+      
+      var bigHint = target.getAttribute('data-tooltip');
+   
+        if(!bigHint) return;
+        var span = document.createElement('div');
+        span.innerHTML = bigHint;
+        document.body.appendChild(span); 
+        
+        var coords = target.getBoundingClientRect();
+        
+       // alert(coords.top)
+        var left = coords.left + (target.offsetWidth - span.offsetWidth) / 2;
+        
+          if(left < 0) left = coords.left;
+          
+        var top = coords.top - span.offsetHeight - 3;
+        
+          if(top < 0){
+            top = coords.top + target.offsetHeight + 3;
+          }
+        
+        span.style.left = left + 'px';
+        span.style.top = top + 'px';
+        
+        Hint = span;
+    }
+    
+    document.onmouseout = function(e){
+      
+        if(Hint) {
+        
+        document.body.removeChild(Hint);
+       // Hint = null;
+        
+        }
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<style>
+	
+</style>
+<body>
+  <select id='countrs'>
+	<option>Россия</option>
+	<option>Америка</option>
+	<option>Англия</option>
+  </select>
+	
+  <select id='city' > 
+	<option value='Россия' hidden='true'>Москва</option>
+	<option value='Россия' hidden='true'>Питер</option>
+	<option value='Америка'hidden='true'>Вашингтон</option>
+	<option value='Америка'hidden='true'>Чикаго</option>
+	<option value='Англия' hidden='true'>Лондон</option>
+	<option value='Англия' hidden='true'>Ливерпуль</option>
+  </select><br>
+  
+  <p></p>
+<script>
+	var select = document.getElementById('countrs');
+	var options = select.options;
+	var city = document.getElementById('city');
+	var p = document.querySelector('p');
+	var opt = city.options;
+	  
+	  
+	  select.onchange = function(){
+	    var arr = []
+		  for(var i = 0;i < options.length;i++){
+			for(var j = 0;j < opt.length;j++){ 
+						  
+				if(options[i].selected == true && options[i].text == opt[j].value){
+					city.value = opt[j].value;
+					opt[j].hidden = false;
+				}
+				
+				if(!options[i].selected && options[i].text == opt[j].value){  
+				  opt[j].hidden = true;
+				}
+				
+			  }
+			  
+			}
+			    opt.selectedIndex = -1;
+				
+				    city.onchange = function(){
+			 	    
+						p.innerHTML = options[options.selectedIndex].text +','+ opt[opt.selectedIndex].text;
+					}
+					 
+			
+		  }
+	  
+</script>
+</body>
+</html>

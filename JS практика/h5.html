@@ -1,0 +1,25 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+ <title>Панель навигации</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+ </head>
+ <style>
+
+ </style>
+ <body>
+	<input value='' id='text1' onkeyup='func()'>
+	<span></span>
+  
+</body>
+
+<script>
+	function func(){
+	  let elem = document.querySelector('#text1');
+	  let span = document.querySelector('span');
+	  
+	  span.innerHTML = elem.value;
+	}
+	
+</script>
+</html>  

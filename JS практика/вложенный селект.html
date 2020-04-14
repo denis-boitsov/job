@@ -1,0 +1,62 @@
+﻿<!DOCTYPE>
+<html
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<style>
+	table{
+		width: 150px;
+		height: 100px;
+	}
+</style>
+<body>
+	<select>
+		<option>Россия</option>
+		<option>США</option>
+		<option>Англия</option>
+	</select>
+<script>
+
+	var select = document.querySelector('select');
+	var options = document.querySelectorAll('option');
+	var newSel = document.createElement('select');
+	var newOpt = document.createElement('option');
+	var newOpt1 = document.createElement('option');
+	  select.selectedIndex = -1;
+		
+	   document.body.appendChild(newSel);
+		
+		select.addEventListener('click', getSelect);
+		
+		function getSelect(){
+		  
+		  if(this.selectedIndex == 0){
+			newOpt.text = 'Москва';
+			newOpt1.text = 'Таганрог';
+			
+			newSel.appendChild(newOpt);
+			newSel.appendChild(newOpt1);
+			
+		  }
+		  if(this.selectedIndex == 1){
+			newOpt.text = 'Нью-Йорк';
+			newOpt1.text = 'Даллас';
+			
+			newSel.appendChild(newOpt);
+			newSel.appendChild(newOpt1);
+		 }
+		  if(this.selectedIndex == 2){
+			newOpt.text = 'Лондон';
+			newOpt1.text = 'Манчестер';
+			
+			newSel.appendChild(newOpt);
+			newSel.appendChild(newOpt1);
+			
+		  }
+		 
+		}
+	
+</script>
+</body>
+</html>

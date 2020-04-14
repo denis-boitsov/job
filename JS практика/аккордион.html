@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+	#wrapp{
+		width: 600px;
+		margin: 0 auto;
+		border: 1px dotted grey;
+	}
+	ul li{
+		text-decoration: none;
+		list-style: none;
+		border: 1px solid;
+		width: 300px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		margin: auto;
+		margin-bottom: 10px;
+		border-radius: 5px;
+		background-color: rgb(0, 100, 250);
+		cursor: pointer;
+	}
+	.java, .jquery, .dom, .css{
+		margin: auto;
+		width: 280px;
+		font-size: 14px;
+		padding-bottom: 5px;
+		display: none;
+	}
+</style>
+<body>
+	<div id='wrapp'>
+	  <ul>
+		<li class='li1'>JavaScript</li>
+		<p class='java'>JavaScript — прототипно-ориентированный сценарный язык программирования. 
+		Является реализацией языка ECMAScript.<br>
+		jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API для работы с AJAX. 
+		Сейчас разработка jQuery ведётся командой jQuery во главе с Джоном Резигом. </p>
+		<li class='li2'>Jquery</li>
+		<p class='jquery'>jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API для работы с AJAX. 
+		Сейчас разработка jQuery ведётся командой jQuery во главе с Джоном Резигом. </p>
+		<li class='li3'>DOM</li>
+		<p class='dom'>DOM — это не зависящий от платформы и языка программный интерфейс, позволяющий программам и скриптам получить доступ к содержимому 
+		HTML-, XHTML- и XML-документов, а также изменять содержимое, структуру и оформление таких документов. </p>
+		<li class='li4'>CSS</li>
+		<p class='css'>CSS — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. </p>
+	  </ul>
+	</div>
+<script>
+	var li1 = document.querySelector('.li1');
+	var li2 = document.querySelector('.li2');
+	var li3 = document.querySelector('.li3');
+	var li4 = document.querySelector('.li4');
+	var java = document.querySelector('.java');
+	var jquery = document.querySelector('.jquery');
+	var dom = document.querySelector('.dom');
+	var css = document.querySelector('.css');
+	
+	 li1.addEventListener('click', func1);
+	 
+	 function func1(){
+		this.style.backgroundColor = 'red';
+		java.style.display = 'block';
+		jquery.style.display = 'none';
+		dom.style.display = 'none';
+		css.style.display = 'none';
+		li2.style.backgroundColor = 'blue';
+		li3.style.backgroundColor = 'blue';
+		li4.style.backgroundColor = 'blue';
+	 }
+	 
+	 li2.addEventListener('click', func2);
+	 
+	  function func2(){
+		this.style.backgroundColor = 'red';
+		li1.style.backgroundColor = 'blue';
+		java.style.display = 'none';
+		jquery.style.display = 'block';
+		dom.style.display = 'none';
+		css.style.display = 'none';
+		li3.style.backgroundColor = 'blue';
+		li4.style.backgroundColor = 'blue';
+	  }
+	  
+	  li3.addEventListener('click', func3);
+	 
+	  function func3(){
+		this.style.backgroundColor = 'red';
+		li1.style.backgroundColor = 'blue';
+		java.style.display = 'none';
+		jquery.style.display = 'none';
+		dom.style.display = 'block';
+		css.style.display = 'none';
+		li2.style.backgroundColor = 'blue';
+		li4.style.backgroundColor = 'blue';
+	  }
+	  
+	  li4.addEventListener('click', func4);
+	 
+	  function func4(){
+		this.style.backgroundColor = 'red';
+		li1.style.backgroundColor = 'blue';
+		java.style.display = 'none';
+		jquery.style.display = 'none';
+		dom.style.display = 'none';
+		css.style.display = 'block';
+		li2.style.backgroundColor = 'blue';
+		li3.style.backgroundColor = 'blue';
+	  }
+</script>
+</body>
+</html>

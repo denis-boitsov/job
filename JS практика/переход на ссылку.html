@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+	table{
+		border-spacing: 0;
+		border-collapse: collapse;
+	}
+	td, th{
+		border: 1px solid;
+		text-align: center;
+	}
+</style>
+<body>
+	<table>
+	 <thead> 
+	  <tr>
+		<th>№</th>
+		<th>Фамилия</th>
+		<th>Имя</th>
+		<th>Возраст</th>
+	  </tr>
+	 </thead>
+	 <tbody>
+	  <tr>
+		<td>2</td>
+		<td>Петров</td>
+		<td>Петр</td>
+		<td>24</td>
+	  </tr>
+	  <tr>
+		<td>1</td>
+		<td>Иванов</td>
+		<td>Иван</td>
+		<td>32</td>
+	  </tr>
+	  <tr>
+		<td>3</td>
+		<td>Абрамов</td>
+		<td>Абрам</td>
+		<td>34</td>
+	  </tr>
+	 </tbody>
+	</table>
+<script>
+	var table = document.querySelector('table');
+	var th = document.querySelectorAll('th');
+	var td = document.querySelectorAll('td');
+	var tr = document.querySelectorAll('tr');
+	
+	for(var i = 0;i < th.length;i++){
+		th[i].addEventListener('click', func);
+	}
+	
+		function func(){
+			sortColumn(this.cellIndex);
+			
+		}
+		
+		function sortColumn(a){
+			var rowsArr = [];
+			rowsArr.push(td[a]);
+			alert(td[6].innerHTML);
+		}
+</script>
+</body>
+</html>
