@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<style>
+	
+</style>
+<body>
+  <table border='1' style='cursor: pointer;'>
+	<tr>
+	   <td>111</td>
+	   <td>222</td>
+	   <td>333</td>
+	</tr>
+	<tr>
+	   <td>444</td>
+	   <td>555</td>
+	   <td>665</td>
+	</tr>
+	<tr>
+	   <td>777</td>
+	   <td>888</td>
+	   <td>999</td>
+	</tr>
+  </table><br><br>
+<script>
+	var table = document.querySelector('table');
+      
+	   table.addEventListener('click', inpBut);
+	   
+	   
+	     function inpBut(e){
+		    var target = e.target;
+				var input = document.createElement('input');
+				var button = document.createElement('button');
+				 
+				 if(target.tagName != 'TD') return;
+				 button.innerHTML = 'Сохранить';
+				 input.value = target.innerHTML;
+				 
+				  target.appendChild(input);				  
+				  input.style.width = '50px';
+				 
+				  target.appendChild(button);
+				  
+				    button.onclick = function(){
+					  this.parentElement.innerHTML = input.value;
+					}
+				  
+		 }
+	
+</script>
+</body>
+</html>

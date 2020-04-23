@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<style>
+	
+
+</style>
+<body>
+	<ul id='qust1'>
+		<li>JavaScript это тоже самое что и Java? </li>
+		  <ul>
+			<li><label><input type='radio' name='radio'>Нет.</label></li>
+			<li><label><input type='radio' name='radio'>Да.</label></li>
+			<li><label><input type='radio' name='radio'>Когда как.</label></li>
+		  </ul>
+		<li>Сколько параментров можно передавать в фукнцию? </li>
+		  <ul id='qust2'>
+			<li><label><input type='radio' name='fn'>Только столько, сколько указано при ее созданиию</li>
+			<li><label><input type='radio' name='fn'>Минимум 1.</label></li>
+			<li><label><input type='radio' name='fn'>Сколько угодно.</label></li>
+		  </ul>
+		<li>Что такое: "use strict"?</li>
+		  <ul id='qust3'>
+			<li><label><input type='radio' name='use'>Просто строка</label></li>
+			<li><label><input type='radio' name='use'>Функция</label></li>
+			<li><label><input type='radio' name='use'>Строгий режим</label></li>
+		  </ul>
+	</ul>
+	<button>Проверить</button>
+<script>
+	var button = document.querySelector('button');
+	var list = qust1.querySelectorAll('li');
+	var inputs = qust1.querySelectorAll('input');
+	  qust1.addEventListener('click', func);
+	  
+	  var res = 0;
+	  var count = 0;
+
+	  
+	    function func(e){
+			var target = e.target;
+			
+			if(target.tagName != "INPUT") return;
+		
+			if(target.closest('label').textContent == 'Нет.'){
+				
+				++res;
+			}
+			if(target.closest('label').textContent == 'Сколько угодно.'){
+				
+				++res;
+			}
+			if(target.closest('label').textContent == 'Строгий режим'){
+				
+				++res;
+			}
+			if(target.closest('label').textContent == 'Да.'||target.closest('label').textContent == 'Когда как.'){
+				++count;
+			}
+	
+			if(target.closest('label').textContent == 'Только столько, сколько указано при ее созданиию'||target.closest('label').textContent == 'Минимум 1.'){
+				++count;
+			}
+			if(target.closest('label').textContent == 'Просто строка'||target.closest('label').textContent == 'Функция'){
+				++count;
+			}
+			 
+		
+			
+			
+		button.onclick = function(){
+			var text = 'Правильных ответов:';
+			var text1 = 'Неправильных ответов:';
+			var all = res + count;
+			var percent = Math.round((res/all)*100);
+			
+			text = text +' '+ res;
+			text1 = text1 +' '+ count;
+			
+			var test = text +'('+ percent +'%'+')' + '\r\n '+ text1;
+			alert(test);
+			res = 0;
+			count = 0;
+		
+			 for(var i = 0;i < inputs.length;i++){
+			   inputs[i].checked = 0;
+			 }
+			}
+			
+		}
+		
+		
+</script>
+</body>
+</html>

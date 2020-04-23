@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<style>
+	
+</style>
+<body>
+  <ul>
+    <li>Россия
+	   <ul>
+	    <li>Москва</li>
+		<li>Таганрог</li>
+		<li>Санкт-Петербург</li>
+	   </ul></li>
+	<li>USA
+	   <ul>
+	    <li>Washington</li>
+		<li>Las Vegas</li>
+		<li>New-York</li>
+	   </ul></li>
+	<li>English
+	   <ul>
+	    <li>London</li>
+		<li>Liverpul</li>
+		<li>Manchester United</li>
+	   </ul></li>
+  </ul>
+<script>
+	var li = document.querySelectorAll('li');
+	var ul = document.querySelectorAll('ul');
+	   for(var i = 0;i < li.length;i++){
+		li[i].addEventListener('click', func);
+		}
+		
+		  function func(){
+			if(this.tagName != 'LI') return;
+			  this.firstElementChild.hidden = true;
+			  this.removeEventListener('click', func);
+			  this.addEventListener('click', func2);
+			  
+		  }
+		  
+		     function func2(){
+				this.firstElementChild.hidden = false;
+				 this.removeEventListener('click', func2);
+				 this.addEventListener('click', func);
+			 }
+	
+</script>
+</body>
+</html>

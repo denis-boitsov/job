@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+	#wrapp{
+		width: 400px;
+		margin: 0 auto;
+		border: 1px solid green;
+		border-radius: 10px;
+	}
+	ul{
+		padding-left: 20px;
+	}
+	ul li{
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		border-radius: 5px 5px 0 0;
+		padding: 5px 15px;
+		background-color: rgb(240, 240, 240);
+		cursor: pointer;
+		transition-delay: 1s;
+	}
+	.java, .javasc, .jquery, .dom, .css{
+		padding: 0 20px 10px 20px;
+		text-align: justify;
+	}
+	.jquery, .dom, .css{
+		display: none;
+	}
+</style>
+<body>
+	<div id='wrapp'>
+	  <ul>
+		<li class='li1'>JavaScript</li>
+		<li class='li2'>Jquery</li>
+		<li class='li3'>DOM</li>
+		<li class='li4'>CSS</li>
+	  </ul>
+		<p class='java'>JavaScript — прототипно-ориентированный сценарный язык программирования. 
+		Является реализацией языка ECMAScript. </p>
+		<p class='javasc'>JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений. 
+		Наиболее широкое применение находит в браузерах как язык сценариев для придания интерактивности веб-страницам. </p>
+		<p class='jquery'>jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API для работы с AJAX. 
+		Сейчас разработка jQuery ведётся командой jQuery во главе с Джоном Резигом. </p>
+		<p class='dom'>DOM — это не зависящий от платформы и языка программный интерфейс, позволяющий программам и скриптам получить доступ к содержимому 
+		HTML-, XHTML- и XML-документов, а также изменять содержимое, структуру и оформление таких документов. </p>
+		<p class='css'>CSS — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. </p>
+	</div>
+<script>
+	var li1 = document.querySelector('.li1');
+	var li2 = document.querySelector('.li2');
+	var li3 = document.querySelector('.li3');
+	var li4 = document.querySelector('.li4');
+	var java = document.querySelector('.java');
+	var javasc = document.querySelector('.javasc');
+	var jquery = document.querySelector('.jquery');
+	var dom = document.querySelector('.dom');
+	var css = document.querySelector('.css');
+	
+	  li1.style.backgroundColor = 'green';
+	  li1.style.color = 'white';
+	
+		li2.addEventListener('click', getLi2);
+		
+		  function getLi2(){
+			this.style.backgroundColor = 'green';
+			this.style.color = 'white';
+			li3.style.backgroundColor = '';
+			li3.style.color = '';
+			li4.style.backgroundColor = '';
+			li4.style.color = '';
+			li1.style.backgroundColor = '';				
+			li1.style.color = '';
+			java.style.display = 'none';
+			javasc.style.display = 'none';
+			jquery.style.display = 'inline-block';
+			dom.style.display = 'none';
+			css.style.display = 'none';
+			
+		  }
+		li3.addEventListener('click', getLi3);
+			
+			function getLi3(){
+				this.style.backgroundColor = 'green';
+				this.style.color = 'white';
+				li2.style.backgroundColor = '';
+				li2.style.color = '';
+				li4.style.backgroundColor = '';
+				li4.style.color = '';
+				li1.style.backgroundColor = '';
+				li1.style.color = '';
+				java.style.display = 'none';
+				javasc.style.display = 'none';
+				jquery.style.display = 'none';
+				css.style.display = 'none';
+				dom.style.display = 'inline-block';
+			}
+		li4.addEventListener('click', getLi4);
+			
+			function getLi4(){
+				this.style.backgroundColor = 'green';
+				this.style.color = 'white';
+				li2.style.backgroundColor = '';
+				li2.style.color = '';
+				li3.style.backgroundColor = '';
+				li3.style.color = '';
+				li1.style.backgroundColor = '';
+				li1.style.color = '';
+				java.style.display = 'none';
+				javasc.style.display = 'none';
+				jquery.style.display = 'none';
+				dom.style.display = 'none';
+				css.style.display = 'inline-block';
+			}
+		li1.addEventListener('click', getLi1);
+			
+			function getLi1(){
+				this.style.backgroundColor = 'green';
+				this.style.color = 'white';
+				li2.style.backgroundColor = '';
+				li2.style.color = '';
+				li4.style.backgroundColor = '';
+				li4.style.color = '';
+				li3.style.backgroundColor = '';
+				li3.style.color = '';
+				dom.style.display = 'none';
+				jquery.style.display = 'none';
+				css.style.display = 'none';
+				java.style.display = 'block';
+				javasc.style.display = 'block';
+			}
+</script>
+</body>
+</html>

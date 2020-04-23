@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<style>
+	.quest1, .quest2, .quest3{
+		list-style-type: none;
+	}
+</style>
+<body>
+	
+	<ul id='test'>
+	  <li class='quest1'>JavaScript это тоже самое что и Java?
+	  <ul class='list1'>
+		<li><input type='checkbox' data-true>Нет</li>
+		<li><input type='checkbox'>Да</li>
+		<li><input type='checkbox'>Когда как</li>
+	  </ul>
+	  </li>
+	  <li class='quest2'>Сколько параментров можно передавать в фукнцию? 
+	  <ul class='list2'>
+		<li><input type='checkbox'>Только столько, сколько указано при ее создании</li>
+		<li><input type='checkbox'>Минимум 1.</li>
+		<li><input type='checkbox'  data-true>Сколько угодно.</li>
+	  </ul>
+	  </li>
+	  <li class='quest3'>Что такое: "use strict"?
+	  <ul class='list3'>
+		<li><input type='checkbox'>Просто строка</li>
+		<li><input type='checkbox'>Функция</li>
+		<li><input type='checkbox'  data-true>Строгий режим</li>
+	  </ul>
+	  </li>
+	</ul>
+	<button>Следующий вопрос</button>
+<script>
+	var quest1 = document.querySelector('.quest1');
+	var quest2 = document.querySelector('.quest2');
+	var quest3 = document.querySelector('.quest3');
+	var button = document.querySelector('button');
+	var arr = [];
+	var numbers = 0;
+	var k = 0;
+	quest2.style.display = 'none';
+	quest3.style.display = 'none';
+	
+	  button.addEventListener('click', func);
+	  
+	    function func(){
+		  k++;
+		  if(k == 1){
+		     var list1 = document.querySelector('.list1');
+		     quest1.style.display = 'none';
+		     quest2.style.display = '';
+				numbers = list1.querySelectorAll('input[type=checkbox]');
+				arr.push(checkTest(numbers));
+		    }
+			if(k == 2){
+				var list2 = document.querySelector('.list2');
+				quest2.style.display = 'none';
+				quest3.style.display = '';
+				button.innerHTML = 'Проверить'
+			
+				 numbers = list2.querySelectorAll('input[type=checkbox]');
+			   arr.push(checkTest(numbers)); 
+			}
+			if(k == 3){
+				var list3 = document.querySelector('.list3');
+			
+			  
+			     numbers = list3.querySelectorAll('input[type=checkbox]');
+				arr.push(checkTest(numbers));
+			  
+			printTest();
+			 arr = [];
+			 k =0;
+			} 
+		}
+		
+			function printTest(){
+				var trueAnswers = 0;
+				var falseAnswers = 0;
+				var noAnswers = 0;
+				  for (var i = 0; i < arr.length; i++) {
+				   if (arr[i] == true) {
+					trueAnswers++;
+				   } else if (arr[i] == false) {
+					 falseAnswers++;
+				   } else if (arr[i] == null) {
+					 noAnswers++;
+				}
+			}
+			var all = trueAnswers + falseAnswers + noAnswers;
+			var percent = Math.round((trueAnswers/all) * 100);
+			var msg = 'Правильных ответов: ' + trueAnswers + ' (' + percent + '%)\n'
+				+ 'Неправильных ответов: ' + falseAnswers + '\n'
+				+ 'Без ответов: ' + noAnswers + '\n';
+			alert(msg);
+		}				  
+			
+			
+			 function checkTest(numbers){
+			   var arr = null;
+			   var noNum = true;
+				for(var i = 0;i < numbers.length;i++){
+					var isNum = (numbers[i].getAttribute('data-true') !== null);
+					  if(numbers[i].checked){
+						noNum = false;
+					    if(isNum){
+						  arr = true;	
+						}
+					    else{
+						  arr = false;
+					    }
+					}else{
+						 if(isNum){
+							arr = false;
+						 }
+					  }
+				}
+				if(noNum){
+					arr = null;
+				}
+				
+				return arr;
+			 }
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #field {
+      width: 200px;
+      height: 150px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    #ball {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      transition: 1s;
+    }
+  </style>
+</head>
+
+<body style="height:2000px">
+
+  Кликните на любое место поля, чтобы мяч перелетел туда.
+  <br> Мяч никогда не вылетит за границы поля.
+
+
+  <div id="field">
+    <img src="https://js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+  <script>
+    var ball = document.getElementById('ball');
+    var field = document.getElementById('field');
+    
+      
+    field.onclick = function(event){
+      
+      var box = this.getBoundingClientRect();
+      
+      var boxInner = {
+       top: box.top + field.clientTop,
+       left: box.left + field.clientLeft
+      };
+      
+     var ballInner = {
+       top: event.clientY - boxInner.top - ball.clientHeight / 2,
+       left: event.clientX - boxInner.left - ball.clientWidth / 2
+     };
+     if(ballInner.top < 0) ballInner.top = 0;
+     
+     if(ballInner.left < 0) ballInner.left = 0;
+     
+     if(ballInner.top + ball.clientHeight > field.clientHeight){
+       
+       ballInner.top = field.clientHeight - ball.clientHeight;
+       
+     }
+     if(ballInner.left + ball.clientWidth > field.clientWidth){
+       ballInner.left = field.clientWidth - ball.clientWidth;
+     }
+     
+     ball.style.top = ballInner.top + 'px';
+     ball.style.left = ballInner.left + 'px';
+      
+      
+    }
+    </script>
+
+</body>
+
+</html>

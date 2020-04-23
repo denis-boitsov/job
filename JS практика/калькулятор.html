@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Глава1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<style>
+	div{
+		border: 1px solid;
+		width: 200px;
+		padding-bottom: 10px;
+	}
+	button{
+		margin-left: -170px;
+		z-index: 1;
+		cursor: pointer;
+	}
+	#text{
+		text-align: right;
+		height: 25px;
+		width: 177px;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+	.num{
+		cursor: pointer;
+		height: 30px;
+		width: 35px;
+		margin-left: 10px;
+		margin-top: 10px; 
+	}
+</style>
+<body>
+  <div>
+		<input id='text' maxlength='10'><button>C</button><br>
+		<input class='num' type='button' value='7'>
+		<input class='num' type='button' value='8'>
+		<input class='num' type='button' value='9'>
+		<input class='num' type='button' value='/'>
+		<input class='num' type='button' value='4'>
+		<input class='num' type='button' value='5'>
+		<input class='num' type='button' value='6'>
+		<input class='num' type='button' value='*'>
+		<input class='num' type='button' value='1'>
+		<input class='num' type='button' value='2'>
+		<input class='num' type='button' value='3'>
+		<input class='num' type='button' value='-'>
+		<input class='num' type='button' value='0'>
+		<input class='num' type='button' value='.'>
+		<input class='num' type='button' value='='>
+		<input class='num' type='button' value='+'>
+  </div>
+<script>
+	var text = document.getElementById('text');
+	var button = document.querySelector('button');
+	var inputs = document.querySelectorAll('.num');
+	var str = '';
+		for(var i = 0;i < inputs.length;i++){
+			inputs[i].addEventListener('click', func);
+		}
+		  function func(){
+			
+			var type = this.value;
+			text.value += this.value;
+			
+			 if(type === '='){
+				str = eval(str);
+				text.value = str;
+				return;
+			 }
+			 else{
+				str += type;
+			 }
+			 text.value = str;
+			 
+			 button.onclick = function(){
+				return text.value = str = '';
+			 }
+		  }
+</script>
+</body>
+</html>
